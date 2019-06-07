@@ -1,22 +1,27 @@
 require "chuck_norris"
+require "colorized_string"
 
 class Chuckjokes
   def self.help
-    puts "Hello to the worst joke teller of Ruby. For a random joke enter 'ruby app.rb random', for an id, enter 'ruby app.rb (enter # here)', to replace a name enter 'ruby app.rb (fist name, last name)'"
+    puts "Hello to the worst joke teller of Ruby"
+    puts "For a random joke enter 'ruby app.rb random'"
+    puts "for an id, enter 'ruby app.rb (enter Number here)'"
+    puts "to replace a name enter 'ruby app.rb (fist name, last name)'"
+    puts "For anything else, go ask chuck"
   end
   def self.get_joke_by_id(id)
-    id_joke = ChuckNorris::JokeFinder.find_joke(id)
-    puts id_joke.joke
-    puts "ID #{id_joke.id}"
+    jokeId = ChuckNorris::JokeFinder.find_joke(id)
+    puts "#{jokeId.joke}"
+    puts "Da ID of the joke is #{jokeId.id}"
   end
   def self.replace_name(userName1, userName2)
-      change = ChuckNorris::JokeFinder.get_joke(first_name: userName1, last_name: userName2 )
-      puts change.joke
-      puts "ID #{change.id}"
+      changeName = ChuckNorris::JokeFinder.get_joke(first_name: userName1, last_name: userName2 )
+      puts "#{changeName.joke}"
+      puts "ID #{changeName.id}"
   end
   def self.random
-    joke = ChuckNorris::JokeFinder.get_joke
-    puts joke.joke
-    puts "ID #{joke.id}"
+    randomJoke = ChuckNorris::JokeFinder.get_joke
+    puts "#{randomJoke.joke}"
+    puts "ID #{randomJoke.id}"
   end
 end
